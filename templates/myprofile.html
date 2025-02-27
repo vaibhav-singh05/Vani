@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock title %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css">
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Profile Card -->
+        <div class="col-md-4">
+            <div class="card shadow-lg text-center">
+                <div class="card-body">
+                    <h4 class="font-weight-bold">{{ user.first_name|default:user.username }}</h4>
+                    <p class="text-muted">{{ user.email }}</p>
+                    <a href="auth/logout" class="btn btn-outline-danger btn-sm ml-2">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order History -->
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Order History</h5>
+                </div>
+                <div class="card-body">
+                    {% if orders %}
+                        <ul class="list-group list-group-flush">
+                            {% for order in orders %}
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Order #{{ order.order_id }}</strong> - {{ order.order_date|default:"N/A" }}<br>
+                                        <small class="text-muted">Total: ₹{{ order.amount }}</small>
+                                    </div>
+                                    <span class="badge badge-success">{{ order.paymentstatus|default:"Pending" }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-muted text-center">No orders yet.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+{% endblock content %}

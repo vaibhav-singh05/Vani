@@ -121,12 +121,6 @@ Vani/
 
 ---
 
-## 🖼 Screenshots ✅
-
-(Add screenshots here to showcase UI and features.)
-
----
-
 ## 💡 Tech Stack ✅
 
 - **Backend**: Django, Django REST Framework

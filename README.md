@@ -148,12 +148,6 @@ Contributions are welcome! To contribute:
 
 ---
 
-## 📝 License ✅
-
-This project is licensed under the **MIT License**. (Specify actual license if different.)
-
----
-
 ## 📬 Contact ✅
 
 For any inquiries or support, please contact:
